@@ -14,7 +14,7 @@ const { MongoClient, ObjectId } = require('mongodb');
   console.log('mongodb is connected.');
 
   const database = client.db('funkit');
-  const routes = database.collection('routes');
+  const Rule = database.collection('routes');
   const Worker = database.collection('workers');
 
   const router = new Router();
@@ -24,12 +24,9 @@ const { MongoClient, ObjectId } = require('mongodb');
   app.use(send);
   app.use(logger);
   app.use(router);
-  // list
-  router.get('/workers', async (req, res) => {
-    const workers = await Worker.find().toArray();
-    res.send({ workers });
-  });
-  router.options('/workers', (req, res) => {
+
+  // cors
+  router.options('/*', (req, res) => {
     res.writeHead(200, {
       // 'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Headers': '*',
@@ -37,11 +34,32 @@ const { MongoClient, ObjectId } = require('mongodb');
     });
     res.end();
   });
+
+  router.get('/rules', async (req, res) => {
+    const rules = await Rule.find().toArray();
+    for(const rule of rules) {
+      const _id = ObjectId(rule.workerId);
+      const worker = await Worker.findOne({ _id });
+      rule.name = worker.name;
+    }
+    res.send({ rules });
+  });
+
+  router.post('/rules', async (req, res) => {
+    const { id, route } = req.body;
+    const result = await Rule.insertOne({ route, workerId: id });
+    res.send({ success: result.acknowledged });
+  });
+
+  // list
+  router.get('/workers', async (req, res) => {
+    const workers = await Worker.find().toArray();
+    res.send({ workers });
+  });
   // create or update
   router.post('/workers', async (req, res) => {
     const { id, name, code } = req.body;
     if (id) {
-      console.log('update');
       const update = { $set: { name, code } };
       const _id = ObjectId(id);
       const result = await Worker.updateOne({ _id }, update);
@@ -56,7 +74,8 @@ const { MongoClient, ObjectId } = require('mongodb');
     const { id } = req.params;
     const _id = ObjectId(id);
     const worker = await Worker.findOne({ _id });
-    res.send({ worker });
+    const rules = await Rule.find({ workerId: id }).toArray();
+    res.send({ worker, rules });
   });
 
   app.use((req, res) => res.send(404));

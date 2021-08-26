@@ -1,17 +1,32 @@
-
+@import url(https://lsong.org/stylesheets/form.css);
 
 input {
     width: 100%;
     display: block;
-    border: none;
     margin: .8em 0;
+    margin-right: 50px;
+    font-family: "Fira Code", monospace;
+}
+
+.title {
+    border: none;
     font-size: 1.5em;
     font-weight: bold;
-    font-family: "Fira Code", monospace;
-    margin-right: 50px;
 }
 
 textarea {
     max-width: 100%;
     min-width: 100%;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-align-center {
+    align-items: center;
+}
+
+.flex-space-between {
+    justify-content: space-between;
 }

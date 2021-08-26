@@ -1,2 +1,5 @@
+# FunKit Frontend
 
-# React App
+:cloud: A Simple Function as a Service Framework
+
+https://funkit.lsong.org
