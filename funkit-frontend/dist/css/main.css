@@ -1,0 +1,52 @@
+@import url(https://lsong.org/stylesheets/button.css);
+
+body {
+    margin: auto;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.worker-list {}
+
+
+.worker-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0.3rem 0;
+        padding: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+
+.worker-item:hover {
+        cursor: pointer;
+        background-color: #eee;
+    }
+
+
+.worker-status-running {
+        color: lightgreen;
+    }
+
+
+input {
+    width: 100%;
+    display: block;
+    border: none;
+    margin: .8em 0;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: "Fira Code", monospace;
+    margin-right: 0.5rem;
+}
+
+textarea {
+    max-width: 100%;
+    min-width: 100%;
+}

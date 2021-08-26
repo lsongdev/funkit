@@ -1,0 +1,40 @@
+{
+  "main": "index.js",
+  "source": "./src/main.tsx",
+  "scripts": {
+    "build": "kbuild",
+    "serve": "python -m SimpleHTTPServer",
+    "dev": "npm run build -- --watch"
+  },
+  "author": "lsong",
+  "license": "MIT",
+  "devDependencies": {
+    "@kelpjs/build": "^0.0.15",
+    "antd": "^3.25.3",
+    "kelp-static": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-loadable": "^5.5.0",
+    "react-router-dom": "latest",
+    "typescript": "^3.9.6"
+  },
+  "keywords": [
+    "react",
+    "demo"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/song940/react-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/song940/react-app/issues"
+  },
+  "homepage": "https://github.com/song940/react-app#readme",
+  "dependencies": {
+    "kelp": "^2.0.2",
+    "kelp-logger": "^1.1.0"
+  },
+  "name": "funkit-frontend",
+  "description": "",
+  "version": "1.0.0"
+}

@@ -1,0 +1,30 @@
+{
+  "name": "funkit",
+  "version": "1.0.0",
+  "main": "index.js",
+  "bin": {
+    "funkit": "funkit.js"
+  },
+  "directories": {
+    "example": "example",
+    "lib": "lib"
+  },
+  "dependencies": {
+    "kelp": "^2.0.2",
+    "kelp-argv": "^0.0.3",
+    "kelp-body": "^1.4.2",
+    "kelp-send": "^1.0.6"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/song940/funkit.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/song940/funkit/issues"
+  },
+  "homepage": "https://github.com/song940/funkit#readme",
+  "description": ""
+}
