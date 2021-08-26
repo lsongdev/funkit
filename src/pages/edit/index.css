@@ -1,0 +1,17 @@
+
+
+input {
+    width: 100%;
+    display: block;
+    border: none;
+    margin: .8em 0;
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: "Fira Code", monospace;
+    margin-right: 50px;
+}
+
+textarea {
+    max-width: 100%;
+    min-width: 100%;
+}
