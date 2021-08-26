@@ -27,6 +27,14 @@ const routes = [
     })
   },
   {
+    path: "/workers",
+    exact: true,
+    component: Loadable({
+      loading,
+      loader: () => import('./pages/workers')
+    })
+  },
+  {
     path: "/worker/:id",
     component: Loadable({
       loading,
@@ -47,6 +55,8 @@ const RouteWithSubRoutes = route => (
 
 const links = [
   { text: 'Home', href: "/" },
+  { text: 'Rules', href: "/" },
+  { text: 'Workers', href: "/workers" },
   { text: 'Help', href: "/help" },
 ];
 

@@ -4,12 +4,11 @@ import { Link } from 'react-router-dom';
 import './index.css';
 
 const ListItem = ({ data }) => {
-  const { _id, route, name, workerId } = data;
+  const { _id, name } = data;
   return (
-    <Link className="worker-item" to={`/worker/${workerId}`} >
-      <span>{route}</span>
-      <span>=&gt;</span>
+    <Link className="worker-item" to={`/worker/${_id}`} >
       <span>{name}</span>
+      <span>{_id}</span>
     </Link>
   );
 };
@@ -23,24 +22,24 @@ const List = ({ data }) => {
 };
 
 const Index = () => {
-  const [rules, setRules] = useState([]);
+  const [workers, setWorkers] = useState([]);
   const fetchData = async () => {
-    const response = await fetch(`https://api.lsong.me/funkit/rules`);
+    const response = await fetch(`https://api.lsong.me/funkit/workers`, {});
     const body = await response.json();
-    setRules(body.rules);
+    setWorkers(body.workers);
   };
   useEffect(() => {
     fetchData();
   }, []);
   return (
     <div>
-      <header className="flex" >
-        <h2>Rules</h2>
+      <header className="" >
+        <h2>Workers</h2>
         <Link to="/new" >
           <button className="button button-primary" >new</button>
         </Link>
       </header>
-      <List data={rules} ></List>
+      <List data={workers} ></List>
     </div>
   );
 };

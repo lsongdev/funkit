@@ -1,4 +1,7 @@
 @import url(https://lsong.org/stylesheets/button.css);
+@import url(https://lsong.org/stylesheets/form.css);
+@import url(https://lsong.org/stylesheets/flex.css);
+@import url(https://lsong.org/stylesheets/button.css);
 
 body {
     margin: auto;
@@ -10,8 +13,38 @@ header {
     justify-content: space-between;
     align-items: center;
 }
-.worker-list {}
 
+input {
+    width: 100%;
+    display: block;
+    margin: .8em 0;
+    margin-right: 0.5rem;
+    font-family: "Fira Code", monospace;
+}
+
+.title {
+    border: none;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+textarea {
+    max-width: 100%;
+    min-width: 100%;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-align-center {
+    align-items: center;
+}
+
+.flex-space-between {
+    justify-content: space-between;
+}
+.worker-list {}
 
 .worker-item {
         display: flex;
@@ -23,30 +56,11 @@ header {
         border-radius: 5px;
     }
 
-
 .worker-item:hover {
         cursor: pointer;
         background-color: #eee;
     }
 
-
 .worker-status-running {
         color: lightgreen;
     }
-
-
-input {
-    width: 100%;
-    display: block;
-    border: none;
-    margin: .8em 0;
-    font-size: 1.5em;
-    font-weight: bold;
-    font-family: "Fira Code", monospace;
-    margin-right: 0.5rem;
-}
-
-textarea {
-    max-width: 100%;
-    min-width: 100%;
-}
