@@ -2,8 +2,9 @@
   "main": "index.js",
   "source": "./src/main.tsx",
   "scripts": {
+    "start": "npm run build && npm run serve",
     "build": "kbuild",
-    "serve": "python -m SimpleHTTPServer",
+    "serve": "node server",
     "dev": "npm run build -- --watch"
   },
   "author": "lsong",
@@ -32,7 +33,8 @@
   "homepage": "https://github.com/song940/react-app#readme",
   "dependencies": {
     "kelp": "^2.0.2",
-    "kelp-logger": "^1.1.0"
+    "kelp-logger": "^1.1.0",
+    "kelp-proxy": "1.0.1"
   },
   "name": "funkit-frontend",
   "description": "",

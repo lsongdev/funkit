@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { } from 'react-router-dom';
+import { API } from '../../config';
 
 import './index.css';
 
@@ -55,7 +55,7 @@ const Edit = ({ match, history }) => {
   const [route, setRoute] = useState();
   const [rules, setRules] = useState([]);
   const fetchData = async id => {
-    const response = await fetch(`https://api.lsong.me/funkit/workers/${id}`);
+    const response = await fetch(`${API}/workers/${id}`);
     const { worker, rules } = await response.json();
     setName(worker.name);
     setCode(worker.code);
@@ -75,7 +75,7 @@ const Edit = ({ match, history }) => {
   const deploy = async () => {
     const worker = { id, name, code };
     console.log('deploy', worker);
-    const response = await fetch(`https://api.lsong.me/funkit/workers`, {
+    const response = await fetch(`${API}/workers`, {
       method: 'post',
       headers: {
         'Content-Type': 'application/json'
@@ -92,7 +92,7 @@ const Edit = ({ match, history }) => {
     setRoute(value);
   };
   const addRoute = async () => {
-    const response = await fetch(`https://api.lsong.me/funkit/rules`, {
+    const response = await fetch(`${API}/rules`, {
       method: 'post',
       headers: {
         'Content-Type': 'application/json'

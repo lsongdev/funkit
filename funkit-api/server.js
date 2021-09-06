@@ -8,7 +8,7 @@ const { MongoClient, ObjectId } = require('mongodb');
 
 
 (async () => {
-  const client = new MongoClient('mongodb://localhost:27017');
+  const client = new MongoClient('mongodb://lsong.me:27017');
   console.log('mongodb is connecting ...');
   await client.connect();
   console.log('mongodb is connected.');
@@ -81,7 +81,7 @@ const { MongoClient, ObjectId } = require('mongodb');
   app.use((req, res) => res.send(404));
   const server = http.createServer(app);
   server.listen(3005, () => {
-    console.log('funkit api server is running at 3000');
+    console.log('funkit api server is running at 3005');
   });
 
 })();
