@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { API } from '../../config';
 
 import './index.css';
 
@@ -24,7 +25,7 @@ const List = ({ data }) => {
 const Index = () => {
   const [workers, setWorkers] = useState([]);
   const fetchData = async () => {
-    const response = await fetch(`https://api.lsong.me/funkit/workers`, {});
+    const response = await fetch(`${API}/workers`, {});
     const body = await response.json();
     setWorkers(body.workers);
   };

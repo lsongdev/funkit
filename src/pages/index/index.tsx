@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { API } from '../../config';
 
 import './index.css';
 
@@ -25,7 +26,7 @@ const List = ({ data }) => {
 const Index = () => {
   const [rules, setRules] = useState([]);
   const fetchData = async () => {
-    const response = await fetch(`https://api.lsong.me/funkit/rules`);
+    const response = await fetch(`${API}/rules`);
     const body = await response.json();
     setRules(body.rules);
   };
