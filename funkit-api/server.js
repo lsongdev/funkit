@@ -2,10 +2,10 @@ const http = require('http');
 const kelp = require('kelp');
 const body = require('kelp-body');
 const send = require('kelp-send');
+const cors = require('kelp-cors');
 const Router = require('kelp-router');
 const logger = require('kelp-logger');
 const { MongoClient, ObjectId } = require('mongodb');
-
 
 (async () => {
   const client = new MongoClient('mongodb://lsong.me:27017');
@@ -22,18 +22,9 @@ const { MongoClient, ObjectId } = require('mongodb');
   const app = kelp();
   app.use(body);
   app.use(send);
+  app.use(cors());
   app.use(logger);
   app.use(router);
-
-  // cors
-  router.options('/*', (req, res) => {
-    res.writeHead(200, {
-      // 'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS'
-    });
-    res.end();
-  });
 
   router.get('/rules', async (req, res) => {
     const rules = await Rule.find().toArray();

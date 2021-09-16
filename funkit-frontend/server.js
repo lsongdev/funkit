@@ -1,7 +1,7 @@
 const http = require('http');
 const kelp = require('kelp');
-const serve = require('kelp-static');
 const proxy = require('kelp-proxy');
+const serve = require('kelp-static');
 const logger = require('kelp-logger');
 
 const app = kelp();

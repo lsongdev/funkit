@@ -2,6 +2,7 @@
   "dependencies": {
     "kelp": "^2.0.2",
     "kelp-body": "^1.4.2",
+    "kelp-cors": "^0.0.0",
     "kelp-logger": "^1.1.0",
     "kelp-router": "^0.0.2",
     "kelp-send": "^1.0.6",
