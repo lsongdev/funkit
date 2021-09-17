@@ -8,4 +8,4 @@ RUN npm i --production
 
 EXPOSE 3005
 
-CMD [ "node", "." ]
+CMD [ "node", "server" ]
