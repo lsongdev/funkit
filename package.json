@@ -32,6 +32,8 @@
   },
   "homepage": "https://github.com/song940/react-app#readme",
   "dependencies": {
+    "@codemirror/lang-javascript": "^0.19.1",
+    "@uiw/react-codemirror": "^4.0.0",
     "kelp": "^2.0.2",
     "kelp-logger": "^1.1.0",
     "kelp-proxy": "1.0.1"
