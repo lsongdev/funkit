@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 cd funkit-frontend
-npm ci
+npm i
 NODE_ENV=production npm run build
 cd ..
 
