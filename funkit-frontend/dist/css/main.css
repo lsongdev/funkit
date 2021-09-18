@@ -28,11 +28,6 @@ input {
     font-weight: bold;
 }
 
-textarea {
-    max-width: 100%;
-    min-width: 100%;
-}
-
 .flex-row {
     flex-direction: row;
 }
@@ -43,6 +38,11 @@ textarea {
 
 .flex-space-between {
     justify-content: space-between;
+}
+
+.cm-editor {
+    border: none;
+    outline: none !important;
 }
 .worker-list {}
 

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import CodeMirror from '@uiw/react-codemirror';
+import { javascript } from '@codemirror/lang-javascript';
 import { API } from '../../config';
 
 import './index.css';
@@ -51,7 +53,7 @@ const Edit = ({ match, history }) => {
   const { params } = match;
   const { id } = params;
   const [name, setName] = useState(generateName());
-  const [code, setCode] = useState();
+  const [code, setCode] = useState('');
   const [route, setRoute] = useState();
   const [rules, setRules] = useState([]);
   const fetchData = async id => {
@@ -68,8 +70,7 @@ const Edit = ({ match, history }) => {
     const { value } = e.target;
     setName(value);
   };
-  const changeCode = e => {
-    const { value } = e.target;
+  const changeCode = (value, state) => {
     setCode(value);
   };
   const deploy = async () => {
@@ -109,7 +110,9 @@ const Edit = ({ match, history }) => {
         <button className="button button-primary" onClick={deploy} >deploy</button>
       </header>
       <div>
-        <textarea defaultValue={code} rows={20} onChange={changeCode} ></textarea>
+        <CodeMirror
+        extensions={[javascript({  })]}
+        value={code} onChange={changeCode} ></CodeMirror>
       </div>
       {
         id && (
