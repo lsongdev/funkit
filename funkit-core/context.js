@@ -17,5 +17,6 @@ const createContext = context => {
 };
 
 module.exports = {
+  Context,
   createContext,
 };

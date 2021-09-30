@@ -8,7 +8,7 @@ const logger = require('kelp-logger');
 const { MongoClient, ObjectId } = require('mongodb');
 
 (async () => {
-  const client = new MongoClient('mongodb://database-server:27017');
+  const client = new MongoClient('mongodb://database-server');
   console.log('mongodb is connecting ...');
   await client.connect();
   console.log('mongodb is connected.');
