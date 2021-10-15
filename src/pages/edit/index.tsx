@@ -56,11 +56,13 @@ const Edit = ({ match, history }) => {
   const [code, setCode] = useState('');
   const [route, setRoute] = useState();
   const [rules, setRules] = useState([]);
+  const [newCode, setNewCode] = useState(code)
   const fetchData = async id => {
     const response = await fetch(`${API}/workers/${id}`);
     const { worker, rules } = await response.json();
     setName(worker.name);
     setCode(worker.code);
+    setNewCode(worker.code);
     setRules(rules);
   };
   useEffect(() => {
@@ -71,10 +73,10 @@ const Edit = ({ match, history }) => {
     setName(value);
   };
   const changeCode = (value, state) => {
-    setCode(value);
+    setNewCode(value);
   };
   const deploy = async () => {
-    const worker = { id, name, code };
+    const worker = { id, name, code: newCode };
     console.log('deploy', worker);
     const response = await fetch(`${API}/workers`, {
       method: 'post',
@@ -111,8 +113,8 @@ const Edit = ({ match, history }) => {
       </header>
       <div>
         <CodeMirror
-        extensions={[javascript({  })]}
-        value={code} onChange={changeCode} ></CodeMirror>
+          extensions={[javascript({})]}
+          value={code} onChange={changeCode} ></CodeMirror>
       </div>
       {
         id && (
