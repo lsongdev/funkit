@@ -1,9 +1,9 @@
 {
-  "name": "funkit",
-  "version": "1.0.0",
+  "name": "@funkit/core",
+  "version": "0.0.0",
   "main": "index.js",
   "bin": {
-    "funkit": "funkit.js"
+    "funkit": "bin/funkit.js"
   },
   "directories": {
     "example": "example",
@@ -20,7 +20,7 @@
     "type": "git",
     "url": "git+https://github.com/song940/funkit.git"
   },
-  "author": "",
+  "author": "Lsong",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/song940/funkit/issues"

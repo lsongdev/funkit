@@ -1,4 +1,11 @@
 {
+  "name": "@funkit/api",
+  "version": "0.0.0",
+  "main": "server.js",
+  "description": "",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "kelp": "^2.0.2",
     "kelp-body": "^1.4.2",
@@ -7,5 +14,8 @@
     "kelp-router": "^0.0.2",
     "kelp-send": "^1.0.6",
     "mongodb": "^4.1.1"
-  }
+  },
+  "author": "Lsong",
+  "license": "ISC",
+  "keywords": []
 }

@@ -2,7 +2,7 @@ const http = require('http');
 const https = require('https');
 const { debuglog } = require('util');
 const { pathToRegexp, find } = require('routing2');
-const { createServer, createWorker } = require('../funkit-core');
+const { createServer, createWorker } = require('@funkit/core');
 
 const debug = debuglog('funkit:server');
 
@@ -67,8 +67,8 @@ const findWorkerId = async request => {
       }
     }
   });
-
+  const { PORT = 3000 } = process.env;
   app.use((req, res) => res.send(404));
   const server = http.createServer(app);
-  server.listen(3000);
+  server.listen(PORT, () => console.log(`@funkit/server is running at ${PORT}`));
 })();
