@@ -3,8 +3,8 @@ const kelp = require('kelp');
 const body = require('kelp-body');
 const send = require('kelp-send');
 const { debuglog } = require('util');
+const Event = require('./lib/event');
 const Request = require('./lib/request');
-const FetchEvent = require('./lib/fetch');
 
 const debug = debuglog('funkit:core');
 
@@ -16,7 +16,7 @@ const createServer = ({ resolve }) => {
     const request = new Request(req);
     const worker = await resolve(request);
     if (!worker) return next();
-    const event = new FetchEvent('fetch');
+    const event = new Event('fetch');
     event.request = request;
     event.respondWith = response => {
       debug('response', response);

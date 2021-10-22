@@ -4,12 +4,12 @@ const EventEmitter = require('events');
 const { createContext } = require('./context');
 
 const debug = debuglog('funkit:worker');
-
 class Worker extends EventEmitter {
-  constructor(code) {
+  constructor(code, context = {}) {
     super();
     this.script = new Script(code);
     this.context = createContext({
+      ...context,
       addEventListener: this.addListener.bind(this),
     });
   }
